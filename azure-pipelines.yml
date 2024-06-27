@@ -1,0 +1,20 @@
+stages:
+- stage: 'BlackDuck_Scan'
+  jobs:
+    - job: detect
+      steps:
+      - task: CmdLine@2
+        inputs:
+          script: sudo find . -name "requirements.txt" -type f -exec pip install --no-cache-dir --no-clean -r '{}' ';'
+      - task: SynopsysDetectTask@9
+        inputs:
+          BlackDuckService: 'BlackDuck'
+          DetectArguments: |
+            --detect.project.name=GenWizard
+            --detect.project.version.name=1.2.11  
+            --blackduck.trust.cert=true  
+            --detect.detector.search.depth=100  
+            --detect.tools=DETECTOR  
+            --detect.detector.search.continue=true
+            --detect.code.location.name=python-dependencies
+          DetectVersion: 'latest'
