@@ -1,0 +1,16 @@
+fastapi==0.109.0
+uvicorn==0.27.0.post1
+langchain==0.1.6
+chromadb==0.4.22
+sentence-transformers==2.3.0
+pydantic==2.5.3
+openai==1.12.0
+langchain_openai==0.0.6
+pyautogen==0.2.16
+pypdf==4.0.2
+ipython==8.22.1
+PyJWT==1.7.0
+uWSGI==2.0.22
+
+
+
